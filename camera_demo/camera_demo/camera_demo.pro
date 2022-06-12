@@ -7,6 +7,10 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        Camera_Object/CameraObject.cpp \
+        Linux_UVC_Camera/bmp.c \
+        Linux_UVC_Camera/camera.c \
+        Linux_UVC_Camera/camera_app.c \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -23,10 +27,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-#    ../../Linux_UVC_Camera/readme.txt
+    Linux_UVC_Camera/readme.txt
 
 HEADERS += \
-#    ../../Linux_UVC_Camera/bmp.h \
-#    ../../Linux_UVC_Camera/camera.h \
-#    ../../Linux_UVC_Camera/camera_app.h \
-#    ../../Linux_UVC_Camera/includes.h
+    Camera_Object/CameraObject.h \
+    Linux_UVC_Camera/camera.h \
+    Linux_UVC_Camera/camera_app.h \
+    Linux_UVC_Camera/includes.h \
+    Linux_UVC_Camera/bmp.h

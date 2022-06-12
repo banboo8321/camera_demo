@@ -1,16 +1,21 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
-
+#include "Camera_Object/CameraObject.h"
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
+    //LOGIC APP
 
     QGuiApplication app(argc, argv);
 
+    qmlRegisterType<CameraObject>("CameraObject",1,0,"CameraObject");
     QQmlApplicationEngine engine;
+    // QQmlContext *context = engine.rootContext();
+    // context->setContextProperty("camera_control",&capture_one_photo);
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
