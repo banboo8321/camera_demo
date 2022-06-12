@@ -1,5 +1,6 @@
 /debug/
 /release/
 /tmp/
+/Linux_UVC_Camera/
 *.o
 *.pro.*

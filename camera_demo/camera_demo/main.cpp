@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-
+#include "./Linux_UVC_Camera/camera_app.h"
 #include "Camera_Object/CameraObject.h"
 int main(int argc, char *argv[])
 {
@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     //LOGIC APP
-
+    //capture_one_photo();
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<CameraObject>("CameraObject",1,0,"CameraObject");

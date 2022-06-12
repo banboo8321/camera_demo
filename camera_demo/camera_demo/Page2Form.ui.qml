@@ -19,6 +19,7 @@ Page {
                 console.log("Take Photo button clicked")
                 camera.iControlCMD = 1
                 camera.sendSignal()
+                camera.start()
             }
         }
         CameraObject{

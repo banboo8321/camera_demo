@@ -2,10 +2,11 @@
 #define CAMERA_OBJECT_H
  
 #include <QObject>
+#include <QThread>
 #include <QtQml>
  
  
-class CameraObject : public QObject
+class CameraObject : public QThread
 {
     Q_OBJECT
  
@@ -22,11 +23,14 @@ public:
     int getiControlCMD() const;
     void setiControlCMD( int newiControlCMD);
  
+    void stop();
     // QString getSString() const;
     // void setSString(const QString &newSString);
- 
+protected:
+    virtual void run() override;
 private:
     int m_iControlCMD;
+    bool bThreadRunning_flg;
     // QString m_sString;
  
 signals:
